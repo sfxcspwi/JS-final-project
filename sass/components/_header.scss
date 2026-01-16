@@ -139,101 +139,107 @@
     left: 41px;
 }
 
-.logo__text
+.logo
 {
-    @include text;
-    font-size: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
+    &__text
+    {
+        @include text;
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+    }
+
+    &__text-highlight
+    {
+        font-family: "Sacramento";
+        font-weight: 400;
+        font-size: 12px;
+    }
 }
 
-.logo__text-highlight
+.header
 {
-    font-family: "Sacramento";
-    font-weight: 400;
-    font-size: 12px;
-}
+        &__logo
+    {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+    }
 
-.header__logo
-{
-    display: flex;
-    align-items: center;
-    gap: 9px;
-}
+    &__content
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-.header__content
-{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    &__links-list
+    {
+        display: flex;
+        position: relative;
+        gap: 50px;
+    }
 
-.header__links-list
-{
-    display: flex;
-    position: relative;
-    gap: 50px;
-}
+    &__links
+    {
+        @include text;
+        color: $color-main;
+        font-size: 12px;
+    }
 
-.header__links
-{
-    @include text;
-    color: $color-main;
-    font-size: 12px;
-}
+    &__user-name
+    {
+        @include text;
+        font-size: 12px;
+    }
 
-.header__user-name
-{
-    @include text;
-    font-size: 12px;
-}
+    &__submenu
+    {
+        position: absolute;
+        width: 160px;
+        height: 105px;
+        width: 160;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-left-width: 1px;
+        border: solid 1px $color-main;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        display: none;
+        top: 30px;
+        left: -30px
+    }
 
-.header__submenu
-{
-    position: absolute;
-    width: 160px;
-    height: 105px;
-    width: 160;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    border: solid 1px $color-main;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    display: none;
-    top: 30px;
-    left: -30px
-}
+    &__submenu-item
+    {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
 
-.header__submenu-item
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center
-}
+    &__submenu-item:hover
+    {
+        background-color: rgba(0, 0, 0, 0.116);
+    }
 
-.header__submenu-item:hover
-{
-    background-color: rgba(0, 0, 0, 0.116);
-}
+    &__submenu-link
+    {
+        @include text;
+        text-align: center;
+        color: $color-main;
+    }
 
-.header__submenu-link
-{
-    @include text;
-    text-align: center;
-    color: $color-main;
-}
-
-.header__user-block
-{
-    display: flex;
-    gap: 51px;
-    align-items: center;
+    &__user-block
+    {
+        display: flex;
+        gap: 51px;
+        align-items: center;
+    }
 }
