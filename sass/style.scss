@@ -10,3 +10,32 @@
 @import "./components/team";
 @import "./components/three-inputs";
 @import "./components/time-calc";
+
+.container__header
+{
+    max-width: 1090px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+}
+
+.container
+{
+    max-width: 576px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+}
+
+ul
+{
+    list-style-type: none;
+    padding: 0px;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+ 
