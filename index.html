@@ -13,7 +13,47 @@
 </head>
 <body>
     <header>
+        <div class="modal is-open" id="modal">
+            <div class="modal__backdrop"></div>
 
+            <div class="modal__content">
+
+                <button class="modal__close">✕</button>
+
+                <p class="modal__text">
+                    <span class="modal__text-hello">Привіт!</span> Ви потрапили на сайт інтерактивних ігор та завдань.
+                    Сподіваємось, що вам сподобається і ви отримаєте позитивні емоції!
+                    Бажаємо вам гарно провести час!
+                </p>
+
+                <p class="modal__label">Введіть своє імʼя</p>
+                <input type="text" placeholder="Ваше ім'я..." class="modal__input">
+
+                <button class="modal__save">Зберегти</button>
+
+                <div class="modal__icons">
+                    <svg class="modal__svg sword" width="30" height="30">
+                        <use href="./symbols.svg#sword"></use>
+                    </svg>
+
+                    <svg class="modal__svg puzzle" width="30" height="30">
+                        <use href="./symbols.svg#puzzle"></use>
+                    </svg>
+
+                    <svg class="modal__svg tictactoe" width="30" height="30">
+                        <use href="./symbols.svg#tictactoe"></use>
+                    </svg>
+
+                    <svg class="modal__svg gamedev" width="30" height="30">
+                        <use href="./symbols.svg#gamedev"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div> 
+            <p id="userName"></p>
+        </div>
     </header>
 
     <main>

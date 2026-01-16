@@ -1,0 +1,16 @@
+@mixin interactive-text 
+{
+    font-family: "Montserrat Alternates";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0;
+    
+}
+@mixin text 
+{
+    font-family: "Montserrat Alternates";
+    font-weight: 400;
+    font-style: normal;
+}
