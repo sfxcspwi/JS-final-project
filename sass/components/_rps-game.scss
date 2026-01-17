@@ -1,2 +1,83 @@
 @import "../utils/variables";
 @import "../utils/mixins";
+
+.rps
+{
+    &__btn-user
+    {
+        background-color: $color-main;
+        border: 0px;
+        border-radius: 20px;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__title
+    {
+        @include text;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        margin: 0px 0px 36px 0px;
+    }
+
+    &__btn-list
+    {
+        display: flex;
+        gap: 48px;
+        margin: 0px;
+    }
+
+    &__wrapper
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 36px;
+        position: relative;
+    }
+
+    &__stats
+    {
+        position: absolute;
+        right: 0px;
+        top: -4px;
+    }
+
+    &__stats-text
+    {
+        margin: 0px;
+        @include text; 
+        font-size: 12px;
+        line-height: 170%;
+        letter-spacing: 0%;
+    }
+
+    &__btn-check
+    {
+        @include text;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: $bg;
+        border-radius: 20px;
+        gap: 10px;
+        padding: 10px 20px 10px 20px;
+        background-color: $color-main;
+        border: 0px;
+    }
+
+    &__result
+    {
+        @include text;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+    }
+}
+
