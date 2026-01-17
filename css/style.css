@@ -1,3 +1,121 @@
+.main__title {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin: 36px 0px;
+}
+
+.decor__line {
+  width: 536px;
+  height: 1px;
+  border: 1px solid #000000;
+  margin: 36px auto;
+}
+
+.age__check-title {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin: 0px 0px 36px 0px;
+}
+.age__check-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.age__check-input {
+  width: 215px;
+  height: 35px;
+  border-radius: 20px;
+  border: 0px;
+  background-color: #D7D7D7;
+  color: #7E7E7E;
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  padding: 10px 20px 10px 10px;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.2509803922);
+}
+.age__check-btn {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: -7px;
+  top: -1px;
+}
+.age__check-controls {
+  position: relative;
+}
+.age__check-answer {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.guess-number__title {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin: 0px 0px 36px 0px;
+}
+.guess-number__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.guess-number__controls {
+  position: relative;
+}
+.guess-number__input {
+  width: 150px;
+  height: 35px;
+  border-radius: 20px;
+  border: 0px;
+  background-color: #D7D7D7;
+  color: #7E7E7E;
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  padding: 10px 20px 10px 10px;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.2509803922);
+}
+.guess-number__btn {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: -7px;
+  top: -1px;
+}
+.guess-number__answer {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
 .modal {
   position: fixed;
   inset: 0;
@@ -181,6 +299,8 @@
   display: none;
   top: 30px;
   left: -30px;
+  z-index: 10;
+  background-color: white;
 }
 .header__submenu-item {
   width: 100%;
