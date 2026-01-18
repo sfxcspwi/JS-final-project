@@ -17,6 +17,72 @@ let rpsResult = document.querySelector(".rps__result");
 let rpsBtnCheck = document.querySelector(".rps__btn-check");
 let computerScoreEl = document.querySelector(".computer__stats");
 let userScoreEl = document.querySelector(".user__stats");
+let calcOperators = document.querySelectorAll(".calc__operator")
+let inputPrimary = document.querySelector(".input-primary")
+let inputSecondary = document.querySelector(".input-secondary")
+let calcResult = document.querySelector(".calc__result")
+let calcCalculate = document.querySelector(".calc__operator-calculate")
+let timeCalcOutput = document.querySelector(".time-calc__result")
+let timeCalcInput = document.querySelector(".time-calc__input")
+let timeCalcCheck = document.querySelector(".time-calc__btn")
+
+timeCalcCheck.addEventListener("click", () => {
+
+    totalSeconds = Number(timeCalcInput.value)
+
+    if(totalSeconds < 0)
+    {
+        timeCalcOutput.textContent = "Введіть дійсне число"
+        return;
+    }
+
+    days = Math.floor(totalSeconds/86400)
+    hours = Math.floor((totalSeconds % 86400)/3600)
+    minutes = Math.floor((totalSeconds % 3600)/60)
+    seconds = totalSeconds % 60
+
+    hours = ("0" + hours).slice(-2);
+    minutes = ("0" + minutes).slice(-2);
+    seconds = ("0" + seconds).slice(-2);
+
+    timeCalcOutput.textContent = `${days} дн. ${hours}:${minutes}:${seconds} `
+});
+
+calcOperators.forEach(button => 
+{
+    button.addEventListener("click", () => {
+        operators = button.dataset.action;
+    });
+});
+
+calcCalculate.addEventListener("click", () => {
+
+    if (operators === "plus")
+    {
+        result = Number(inputPrimary.value) + Number(inputSecondary.value)
+    }
+    else if (operators === "multiplication")
+    {
+        result = Number(inputPrimary.value) * Number(inputSecondary.value)
+    }
+    else if (operators === "minus")
+    {
+        result = Number(inputPrimary.value) - Number(inputSecondary.value)
+    }
+    else if (operators === "division")
+    {
+        if(Number(inputSecondary.value) === 0)
+        {
+            alert("На нуль ділити не можна!")
+            return;
+        }
+
+        result = Number(inputPrimary.value) / Number(inputSecondary.value)
+    }
+
+    calcResult.textContent = `${result}`
+    
+});
 
 const choices = ["rock", "scissors", "paper"];
 let computerScore = 0;

@@ -9,13 +9,6 @@
   margin: 36px 0px;
 }
 
-.decor__line {
-  width: 536px;
-  height: 1px;
-  border: 1px solid #000000;
-  margin: 36px auto;
-}
-
 .age__check-title {
   font-family: "Montserrat Alternates";
   font-weight: 400;
@@ -64,6 +57,68 @@
   font-size: 12px;
   line-height: 100%;
   letter-spacing: 0%;
+}
+
+.calc__title {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin: 0px 0px 36px 0px;
+}
+.calc__operator-calculate {
+  background-color: #000000;
+  color: #ffffff;
+  width: 25px;
+  height: 25px;
+  border: 0px;
+  border-radius: 20px;
+  text-align: center;
+}
+.calc__input {
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.2509803922);
+  background-color: #D7D7D7;
+  color: #7E7E7E;
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  width: 135px;
+  height: 35px;
+  border: 0px;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+}
+.calc__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.calc__operator {
+  background-color: #000000;
+  color: #ffffff;
+  width: 25px;
+  height: 25px;
+  border: 0px;
+  border-radius: 20px;
+  text-align: center;
+}
+.calc__operators-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60px;
+  gap: 10px;
+}
+.calc__operators-list li {
+  flex: 0 0 calc(50% - 5px);
+  display: flex;
+  justify-content: center;
 }
 
 .guess-number__title {
@@ -395,6 +450,64 @@
   letter-spacing: 0%;
 }
 
+.time-calc__result {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+.time-calc__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+.time-calc__title {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin: 0px 0px 36px 0px;
+}
+.time-calc__input {
+  width: 150px;
+  height: 35px;
+  border-radius: 20px;
+  border: 0px;
+  background-color: #D7D7D7;
+  color: #7E7E7E;
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  padding: 10px 20px 10px 10px;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.2509803922);
+}
+.time-calc__btn {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: -1px;
+  right: -7px;
+}
+.time-calc__controls {
+  position: relative;
+}
+
+.decor__mini-line {
+  width: 100px;
+  height: 1px;
+  border: 1px solid #000000;
+  margin: 18px 50px 18px 0px;
+}
+
 .container__header {
   max-width: 1090px;
   padding-left: 15px;
@@ -416,4 +529,11 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+.decor__line {
+  width: 536px;
+  height: 1px;
+  border: 1px solid #000000;
+  margin: 36px auto;
 }/*# sourceMappingURL=style.css.map */

@@ -1,2 +1,78 @@
 @import "../utils/variables";
 @import "../utils/mixins";
+
+.calc
+{
+    &__title
+    {
+        @include text;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        margin: 0px 0px 36px 0px;
+    }
+
+    &__operator-calculate
+    {
+        background-color: $color-main;
+        color: $bg;
+        width: 25px;
+        height: 25px;
+        border: 0px;
+        border-radius: 20px;
+        text-align: center;
+    }
+
+    &__input
+    {
+        box-shadow: 3px 3px 0px 0px #00000040;
+        background-color: $interactive;
+        color: $interactive-text;
+        @include text;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        width: 135px;
+        height: 35px;
+        border: 0px;
+        border-radius: 20px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    &__wrapper
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__operator
+    {
+        background-color: $color-main;
+        color: $bg;
+        width: 25px;
+        height: 25px;
+        border: 0px;
+        border-radius: 20px;
+        text-align: center;
+
+    }
+
+    &__operators-list
+    {
+        display: flex;
+        flex-wrap: wrap;
+        width: 60px;
+        gap: 10px;
+    }
+
+    &__operators-list li 
+    {
+        flex: 0 0 calc(50% - 5px);
+        display: flex;
+        justify-content: center;
+    }
+}
+

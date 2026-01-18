@@ -173,6 +173,48 @@
             </div>
 
         </section>
+
+        <section class="container">
+            <div class="decor__line"></div>
+            <h2 class="calc__title">Калькулятор</h2>
+
+            <div class="calc__wrapper">
+                <input placeholder="Введіть число" class="calc__input input-primary" type="number">
+                <div>
+                    <ul class="calc__operators-list">
+                        <li><button data-action="plus" class="calc__operator">+</button></li>
+                        <li><button data-action="multiplication" class="calc__operator">*</button></li>
+                        <li><button data-action="minus" class="calc__operator">-</button></li>
+                        <li><button data-action="division" class="calc__operator">/</button></li>
+                    </ul>
+                </div>
+                <input placeholder="Введіть число" class="calc__input input-secondary" type="number">
+                <button data-action="calculate" class="calc__operator-calculate">=</button>
+                <p class="calc__input calc__result">Результат</p>
+            </div>
+        </section>
+
+        <section class="container">
+
+            <div class="decor__line"></div>
+            <h2 class="time-calc__title">Калькулятор часу</h2>
+            <div class="time-calc__wrapper">
+
+                <div class="time-calc__controls">
+                    <input class="time-calc__input" placeholder="Введіть число" type="number">
+                    <button class="time-calc__btn">
+                        <svg class="" width="35" height="35">
+                            <use href="./symbols.svg#search"></use>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="decor__mini-line"></div>
+
+                <p class="time-calc__result">0 дн 00:00:00</p>
+                
+            </div>
+        </section>
     </main>
 
     <footer>
