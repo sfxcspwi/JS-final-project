@@ -121,6 +121,29 @@
   justify-content: center;
 }
 
+.football__title {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin: 0px 0px 36px 0px;
+}
+.football__field {
+  width: 546px;
+  height: 220px;
+  border-radius: 25px;
+  border: solid 2px black;
+  background-color: #039900;
+  position: relative;
+}
+.football__ball {
+  position: absolute;
+  transition: 0.5s;
+}
+
 .guess-number__title {
   font-family: "Montserrat Alternates";
   font-weight: 400;

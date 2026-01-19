@@ -25,6 +25,26 @@ let calcCalculate = document.querySelector(".calc__operator-calculate")
 let timeCalcOutput = document.querySelector(".time-calc__result")
 let timeCalcInput = document.querySelector(".time-calc__input")
 let timeCalcCheck = document.querySelector(".time-calc__btn")
+let footballField = document.querySelector(".football__field");
+let footballBall = document.querySelector(".football__ball");
+
+footballField.addEventListener("click", event => {
+  const fieldRect = footballField.getBoundingClientRect();
+  const ballRect = footballBall.getBoundingClientRect();
+
+
+  let x = event.clientX - fieldRect.left - ballRect.width / 2;
+  let y = event.clientY - fieldRect.top - ballRect.height / 2;
+
+
+  x = Math.max(0, Math.min(x, fieldRect.width - ballRect.width));
+
+  y = Math.max(0, Math.min(y, fieldRect.height - ballRect.height));
+
+  footballBall.style.left = `${x}px`;
+  footballBall.style.top = `${y}px`;
+});
+
 
 timeCalcCheck.addEventListener("click", () => {
 
@@ -84,7 +104,7 @@ calcCalculate.addEventListener("click", () => {
     
 });
 
-const choices = ["rock", "scissors", "paper"];
+let choices = ["rock", "scissors", "paper"];
 let computerScore = 0;
 let userScore = 0;
 let playerChoice = ""; 
