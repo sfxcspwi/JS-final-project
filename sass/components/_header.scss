@@ -160,7 +160,10 @@
 
 .header
 {
-        &__logo
+
+    background-color: $bg;
+ 
+    &__logo
     {
         display: flex;
         align-items: center;

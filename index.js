@@ -17,6 +17,7 @@ let rpsResult = document.querySelector(".rps__result");
 let rpsBtnCheck = document.querySelector(".rps__btn-check");
 let computerScoreEl = document.querySelector(".computer__stats");
 let userScoreEl = document.querySelector(".user__stats");
+let drawScore = document.querySelector(".draw")
 let calcOperators = document.querySelectorAll(".calc__operator")
 let inputPrimary = document.querySelector(".input-primary")
 let inputSecondary = document.querySelector(".input-secondary")
@@ -29,6 +30,88 @@ let footballField = document.querySelector(".football__field");
 let footballBall = document.querySelector(".football__ball");
 let bgstnumberInputs = document.querySelectorAll(".bgstnumber__input")
 let bgstnumberOutput = document.querySelector(".bgstnumber__result")
+let swicthMode = document.querySelector(".switch__mode")
+const imgTeam = document.querySelector(".team-mmbr__img");
+const nameTeam = document.querySelector(".team-mmbr__name");
+const infoTeam = document.querySelector(".team-mmbr__info");
+const btnsTeam = document.querySelectorAll(".team-mmbr__btn");
+
+const team = 
+[
+    {
+        img: "/img/me.jpg",
+        name: "Чугуївець Станіслав",
+        info: "Team лідер"
+    },
+    {
+        img: "/img/chatgpt.png",
+        name: "ChatGpt",
+        info: "Ліва рука"
+    },
+    {
+        img: "/img/lupiian.jpg",
+        name: "Лупій Анастасія",
+        info: "Найкращий викладач, права рука"
+    }
+];
+
+let currentIndex = 0;
+
+function updateMember() 
+{
+    imgTeam.src = team[currentIndex].img;
+    nameTeam.textContent = team[currentIndex].name;
+    infoTeam.textContent = team[currentIndex].info;
+}
+
+btnsTeam[1].addEventListener("click", () => {
+    if (currentIndex < team.length - 1) {
+        currentIndex++;
+        updateMember();
+    }
+
+    
+    if (currentIndex >= team.length - 1) 
+    {
+        btnsTeam[1].style.opacity = 0;
+    } 
+    else 
+    {
+        btnsTeam[1].style.opacity = 1;
+    }
+
+    btnsTeam[0].style.opacity = 1;
+});
+
+btnsTeam[0].addEventListener("click", () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateMember();
+    }
+
+    if (currentIndex <= 0) 
+    {
+        btnsTeam[0].style.opacity = 0;
+    } 
+    else 
+    {
+        btnsTeam[0].style.opacity = 1;
+    }
+    
+    btnsTeam[1].style.opacity = 1;
+});
+
+swicthMode.addEventListener("click", event =>
+{
+    if(swicthMode.src.includes("switch__day"))
+    {
+        swicthMode.src = "/svg/switch__night.svg"
+    }
+    else 
+    {
+        swicthMode.src = "/svg/switch__day.svg"
+    }
+})
 
 bgstnumberInputs.forEach( input => 
 {
@@ -72,7 +155,14 @@ footballField.addEventListener("click", event => {
 
 timeCalcCheck.addEventListener("click", () => {
 
+    if(isNaN(timeCalcInput.value))
+    {
+        alert("Введіть число!")
+        return;
+    }
+
     totalSeconds = Number(timeCalcInput.value)
+
 
     if(totalSeconds < 0)
     {
@@ -128,9 +218,10 @@ calcCalculate.addEventListener("click", () => {
     
 });
 
-let choices = ["rock", "scissors", "paper"];
+let choices = ["Камінь", "Ножиці", "Папір"];
 let computerScore = 0;
 let userScore = 0;
+let draw = 0;
 let playerChoice = ""; 
 
 rpsBtns.forEach(button => 
@@ -146,20 +237,22 @@ rpsBtnCheck.addEventListener("click", () => {
     {
         return;
     }
-
+    
     const computerChoice = choices[Math.floor(Math.random() * choices.length)];
     let winner = "";
+    rpsBtnCheck.textContent = `${computerChoice}`
 
     if(playerChoice === computerChoice) 
     {
         winner = "Нічия";
+        draw++
         rpsResult.style.color = "black"
     } 
     else if 
     (
-        (playerChoice === "rock" && computerChoice === "scissors") ||
-        (playerChoice === "scissors" && computerChoice === "paper") ||
-        (playerChoice === "paper" && computerChoice === "rock")
+        (playerChoice === "Камінь" && computerChoice === "Ножиці") ||
+        (playerChoice === "Ножиці" && computerChoice === "Папір") ||
+        (playerChoice === "Папір" && computerChoice === "Камінь")
     ) 
     {
         winner = "Ви виграли раунд!";
@@ -176,11 +269,19 @@ rpsBtnCheck.addEventListener("click", () => {
     rpsResult.textContent = winner;
     computerScoreEl.textContent = `Комп'ютер - ${computerScore}`;
     userScoreEl.textContent = `Ви - ${userScore}`;
+    drawScore.textContent = `Нічия - ${draw}`
 });
 
 
 numberCheckBtn.addEventListener("click", event => {
     let computerNumber = Math.floor(Math.random() * 10) + 1;
+
+    if(isNaN(numberInput.value))
+    {
+        alert("Введіть число!")
+        return;
+    }
+
     if(computerNumber === Number(numberInput.value))
     {
         numberOut.textContent = `Вітаю, ви вгадали число! ${computerNumber}`
@@ -194,6 +295,13 @@ numberCheckBtn.addEventListener("click", event => {
 })
 
 ageCheckBtn.addEventListener("click", event => {
+
+    if(isNaN(ageInput.value))
+    {
+        alert("Введіть число!")
+        return;
+    }
+
     if(Number(ageInput.value) % 4 === 0)
     {
         ageOut.textContent = "Ви народилися у високосний рік!"

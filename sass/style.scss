@@ -25,6 +25,7 @@
     padding-left: 15px;
     padding-right: 15px;
     margin: 0 auto;
+    background-color: $bg;
 }
 
 ul
@@ -44,4 +45,12 @@ a
     height: 1px;
     border: 1px solid $color-main;
     margin: 36px auto;
+}
+
+body
+{
+    background-image: url(/img/bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }

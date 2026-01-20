@@ -331,6 +331,9 @@
   font-size: 12px;
 }
 
+.header {
+  background-color: #ffffff;
+}
 .header__logo {
   display: flex;
   align-items: center;
@@ -463,6 +466,7 @@
   padding: 10px 20px 10px 20px;
   background-color: #000000;
   border: 0px;
+  width: 182px;
 }
 .rps__result {
   font-family: "Montserrat Alternates";
@@ -471,6 +475,63 @@
   font-size: 12px;
   line-height: 100%;
   letter-spacing: 0%;
+  height: 10px;
+}
+
+.team__title {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin: 0px 0px 36px 0px;
+}
+
+.team-mmbr__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.team-mmbr__btn {
+  background-color: transparent;
+  border: none;
+}
+
+.team-mmbr__img-wrapper {
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  background-color: #D7D7D7;
+  overflow: hidden;
+}
+
+.team-mmbr__img {
+  width: 150px;
+  height: 150px;
+}
+
+.team-mmbr__info {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin: 0px 0px 24px 0px;
+}
+
+.team-mmbr__name {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin: 20px 0px;
 }
 
 .bgstnumber__title {
@@ -586,6 +647,7 @@
   padding-left: 15px;
   padding-right: 15px;
   margin: 0 auto;
+  background-color: #ffffff;
 }
 
 ul {
@@ -602,4 +664,11 @@ a {
   height: 1px;
   border: 1px solid #000000;
   margin: 36px auto;
+}
+
+body {
+  background-image: url(/img/bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }/*# sourceMappingURL=style.css.map */

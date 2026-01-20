@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="symbols.svg">
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="modal is-open" id="modal">
             <div class="modal__backdrop"></div>
 
@@ -82,11 +82,11 @@
                 </ul>
 
                 <div class="header__user-block">
-                    <svg class="" width="40" height="20">
-                        <use href="./symbols.svg#switch"></use>
-                    </svg>
+
+                    <img class="switch__mode" src="/svg/switch__day.svg" alt="switch__day">
 
                     <p class="header__user-name" id="userName"></p>
+
                 </div>
             </div>
 
@@ -103,7 +103,7 @@
  
                 <div class="age__check-content">
                     <div class="age__check-controls">
-                        <input class="age__check-input" placeholder="Введіть рік народження" type="number">
+                        <input class="age__check-input" placeholder="Введіть рік народження" type="text">
                         <button class="age__check-btn">
                             <svg class="" width="35" height="35">
                                 <use href="./symbols.svg#search"></use>
@@ -123,7 +123,7 @@
             <div class="guess-number__content">
 
                 <div class="guess-number__controls">
-                    <input class="guess-number__input" placeholder="Введіть число" type="number">
+                    <input class="guess-number__input" placeholder="Введіть число" type="text">
                     <button class="guess-number__btn">
                         <svg class="" width="35" height="35">
                             <use href="./symbols.svg#search"></use>
@@ -144,17 +144,17 @@
 
                 <ul class="rps__btn-list">
                     <li>
-                        <button  data-choice="rock" class="rps__btn-user">
+                        <button  data-choice="Камінь" class="rps__btn-user">
                             <img src="/svg/rock.svg" alt="Rock" width="40" height="40">
                         </button>
                     </li>
                     <li>               
-                        <button data-choice="scissors" class="rps__btn-user">
+                        <button data-choice="Ножиці" class="rps__btn-user">
                             <img src="/svg/scissors.svg" alt="Scissors" width="40" height="40">
                         </button>
                     </li>
                     <li>
-                        <button data-choice="paper" class="rps__btn-user">
+                        <button data-choice="Папір" class="rps__btn-user">
                             <img src="/svg/paper.svg" alt="Paper" width="40" height="40">
                         </button>
                     </li>
@@ -164,11 +164,12 @@
                     <p class="rps__stats-text">Рахунок:</p>
                     <p class="rps__stats-text computer__stats">Комп'ютер - </p>
                     <p class="rps__stats-text user__stats">Ви - </p>
+                    <p class="rps__stats-text draw">Нічия - </p>
                 </div>
 
                 <p class="rps__result"></p>
 
-                <button class="rps__btn-check">Варіант комп'ютера</button>
+                <button class="rps__btn-check">Зіграти</button>
 
             </div>
 
@@ -201,7 +202,7 @@
             <div class="time-calc__wrapper">
 
                 <div class="time-calc__controls">
-                    <input class="time-calc__input" placeholder="Введіть число" type="number">
+                    <input class="time-calc__input" placeholder="Введіть число" type="text">
                     <button class="time-calc__btn">
                         <svg class="" width="35" height="35">
                             <use href="./symbols.svg#search"></use>
@@ -246,8 +247,26 @@
             <p class="bgstnumber__result">Найбільше число яке ви ввели - none</p>
         </section>
 
-        <section>
+        <section class="container">
             <div class="decor__line"></div>
+            <h2 class="team__title">Наша команда</h2>
+
+            <div class="team-mmbr__wrapper">
+                <button class="team-mmbr__btn">
+                    <img src="/svg/arrow__left.svg" alt="">
+                </button>
+                <div class="team-mmbr__img-wrapper">
+                    <img class="team-mmbr__img" src="/img/me.jpg" alt="">
+                </div>
+                <button class="team-mmbr__btn">
+                    <img src="/svg/arrow__right.svg" alt="">
+                </button>
+            </div>
+
+            <div>
+                <h3 class="team-mmbr__name">Чугуївець Станіслав</h3>
+                <p class="team-mmbr__info">попуск</p>
+            </div>
         </section>
     </main>
 

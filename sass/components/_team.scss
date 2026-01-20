@@ -1,2 +1,60 @@
 @import "../utils/variables";
 @import "../utils/mixins";
+
+.team__title
+{
+    @include text;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    margin: 0px 0px 36px 0px;
+}
+
+.team-mmbr__wrapper
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.team-mmbr__btn
+{
+    background-color: transparent;
+    border: none;
+}
+
+.team-mmbr__img-wrapper
+{
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    background-color: $interactive;
+    overflow: hidden;
+
+}
+
+.team-mmbr__img
+{
+    width: 150px;
+    height: 150px;
+}
+
+.team-mmbr__info
+{
+    @include text;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    margin: 0px 0px 24px 0px
+}
+
+.team-mmbr__name
+{
+    @include text;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    margin: 20px 0px;
+}
