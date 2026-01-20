@@ -27,22 +27,46 @@ let timeCalcInput = document.querySelector(".time-calc__input")
 let timeCalcCheck = document.querySelector(".time-calc__btn")
 let footballField = document.querySelector(".football__field");
 let footballBall = document.querySelector(".football__ball");
+let bgstnumberInputs = document.querySelectorAll(".bgstnumber__input")
+let bgstnumberOutput = document.querySelector(".bgstnumber__result")
+
+bgstnumberInputs.forEach( input => 
+{
+    input.addEventListener("input", event => {
+        let values = []
+
+        bgstnumberInputs.forEach( inp => 
+        {
+            if(inp.value !== 0)
+            {
+                values.push(Number(inp.value))
+            }
+        })
+
+        if(values.length>0)
+        {
+            let max = Math.max(...values)
+            bgstnumberOutput.textContent = `Найбільше число яке ви ввели - ${max}`
+        }
+        else
+        {
+            bgstnumberOutput.textContent = `Найбільше число яке ви ввели - none`
+        }
+    })
+});
 
 footballField.addEventListener("click", event => {
-  const fieldRect = footballField.getBoundingClientRect();
-  const ballRect = footballBall.getBoundingClientRect();
+    const fieldRect = footballField.getBoundingClientRect();
+    const ballRect = footballBall.getBoundingClientRect();  
 
+    let x = event.clientX - fieldRect.left - ballRect.width / 2;
+    let y = event.clientY - fieldRect.top - ballRect.height / 2;  
 
-  let x = event.clientX - fieldRect.left - ballRect.width / 2;
-  let y = event.clientY - fieldRect.top - ballRect.height / 2;
+    x = Math.max(0, Math.min(x, fieldRect.width - ballRect.width)); 
+    y = Math.max(0, Math.min(y, fieldRect.height - ballRect.height));
 
-
-  x = Math.max(0, Math.min(x, fieldRect.width - ballRect.width));
-
-  y = Math.max(0, Math.min(y, fieldRect.height - ballRect.height));
-
-  footballBall.style.left = `${x}px`;
-  footballBall.style.top = `${y}px`;
+    footballBall.style.left = `${x}px`;
+    footballBall.style.top = `${y}px`;
 });
 
 
@@ -81,15 +105,15 @@ calcCalculate.addEventListener("click", () => {
     {
         result = Number(inputPrimary.value) + Number(inputSecondary.value)
     }
-    else if (operators === "multiplication")
+    else if(operators === "multiplication")
     {
         result = Number(inputPrimary.value) * Number(inputSecondary.value)
     }
-    else if (operators === "minus")
+    else if(operators === "minus")
     {
         result = Number(inputPrimary.value) - Number(inputSecondary.value)
     }
-    else if (operators === "division")
+    else if(operators === "division")
     {
         if(Number(inputSecondary.value) === 0)
         {
@@ -118,7 +142,7 @@ rpsBtns.forEach(button =>
 
 
 rpsBtnCheck.addEventListener("click", () => {
-    if (playerChoice === "") 
+    if(playerChoice === "") 
     {
         return;
     }
@@ -126,16 +150,16 @@ rpsBtnCheck.addEventListener("click", () => {
     const computerChoice = choices[Math.floor(Math.random() * choices.length)];
     let winner = "";
 
-    if (playerChoice === computerChoice) 
+    if(playerChoice === computerChoice) 
     {
         winner = "Нічия";
         rpsResult.style.color = "black"
     } 
     else if 
     (
-        (playerChoice === 'rock' && computerChoice === 'scissors') ||
-        (playerChoice === 'scissors' && computerChoice === 'paper') ||
-        (playerChoice === 'paper' && computerChoice === 'rock')
+        (playerChoice === "rock" && computerChoice === "scissors") ||
+        (playerChoice === "scissors" && computerChoice === "paper") ||
+        (playerChoice === "paper" && computerChoice === "rock")
     ) 
     {
         winner = "Ви виграли раунд!";
@@ -157,7 +181,7 @@ rpsBtnCheck.addEventListener("click", () => {
 
 numberCheckBtn.addEventListener("click", event => {
     let computerNumber = Math.floor(Math.random() * 10) + 1;
-    if( computerNumber === Number(numberInput.value))
+    if(computerNumber === Number(numberInput.value))
     {
         numberOut.textContent = `Вітаю, ви вгадали число! ${computerNumber}`
         numberOut.style.color = "#039900"
@@ -194,7 +218,7 @@ backdrop.addEventListener("click", closeModal);
 closeBtn.addEventListener("click", closeModal);
 
 document.addEventListener("keydown", event => {
-    if (event.key === "Escape") 
+    if(event.key === "Escape") 
     {
       closeModal();
     }
@@ -202,8 +226,8 @@ document.addEventListener("keydown", event => {
 
 modalSaveBtn.addEventListener("click", event => {
     const name = inputName.value
-    if (name === "") return; 
-    if (name.length > 16)
+    if(name === "") return; 
+    if(name.length > 16)
     {
         alert("Максимальна кількість символів 16!")
         return
@@ -213,24 +237,25 @@ modalSaveBtn.addEventListener("click", event => {
     closeModal();
 });
 
-submenu.style.display = 'none';
+submenu.style.display = "none";
 
-interactiveLink.addEventListener('click', event => {
+interactiveLink.addEventListener("click", event => {
+
     event.preventDefault(); 
 
-    if (submenu.style.display === 'none') {
-        submenu.style.display = 'flex'; 
+    if(submenu.style.display === "none") {
+        submenu.style.display = "flex"; 
     } 
     else 
     {
-        submenu.style.display = 'none'; 
+        submenu.style.display = "none"; 
     }
 });
 
 
-document.addEventListener('click', event => {
-    if (!interactiveLink.contains(event.target) && !submenu.contains(event.target)) 
+document.addEventListener("click", event => {
+    if(!interactiveLink.contains(event.target) && !submenu.contains(event.target)) 
     {
-        submenu.style.display = 'none';
+        submenu.style.display = "none";
     }
 });

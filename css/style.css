@@ -473,6 +473,49 @@
   letter-spacing: 0%;
 }
 
+.bgstnumber__title {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin: 0px 0px 36px 0px;
+}
+.bgstnumber__input {
+  width: 150px;
+  height: 35px;
+  border-radius: 20px;
+  border: 0px;
+  background-color: #D7D7D7;
+  color: #7E7E7E;
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  padding: 10px 20px;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.2509803922);
+  text-align: center;
+}
+.bgstnumber__list {
+  display: flex;
+  gap: 38px;
+  justify-content: center;
+}
+.bgstnumber__result {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin-top: 36px;
+}
+
 .time-calc__result {
   font-family: "Montserrat Alternates";
   font-weight: 400;
