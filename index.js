@@ -40,6 +40,35 @@ let scientistInfo = document.querySelectorAll(".scientist__info");
 let scientistButtons = document.querySelectorAll(".scientist__btn");
 let gamesType = document.querySelectorAll(".header__submenu-link")
 let sections = document.querySelectorAll("section[data-category]");
+let footerBtn = document.querySelector(".footer__email-btn")
+let footerInput = document.querySelector(".footer__email-input")
+let footerModal = document.querySelector(".footer-modal")
+let footerBtnClose = document.querySelector(".footer-modal__close")
+let footerBackdrop = document.querySelector(".footer-modal__backdrop")
+
+footerBtn.addEventListener("click", btn =>
+{
+    if(footerInput.value !== "")
+    {
+        footerModal.classList.remove("is-hidden")
+    }
+})
+
+function closeFooterModal() 
+{
+    footerModal.classList.add("is-hidden");
+}
+
+footerBackdrop.addEventListener("click", closeFooterModal);
+
+footerBtnClose.addEventListener("click", closeFooterModal);
+
+document.addEventListener("keydown", event => {
+    if(event.key === "Escape") 
+    {
+      closeFooterModal();
+    }
+});
 
 gamesType.forEach(link => 
 {

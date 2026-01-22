@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div class="container__header"> 
+        <div class="container__header-footer"> 
 
             <div class="header__content">
                 <div class="header__logo"> 
@@ -392,8 +392,82 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="container__header-footer footer">
 
+        <img src="/svg/footer__logo.svg" alt="footer__logo">
+
+        
+        <ul class="footer__contacts-list">
+            <li>
+                <p class="footer__contacts">
+                    Тел: +38 (123) 456 78 90
+                </p>
+            </li>
+
+            <li>
+                <p class="footer__contacts">
+                    E-Mail: codingmagic@gmail.com
+                </p>
+            </li>
+
+            <li>
+                <p class="footer__contacts">
+                    Facebook: CodingMagic 
+                </p>
+            </li>
+
+            <li>
+                <p class="footer__contacts">
+                    Twitter: CodingMagic 
+                </p>
+            </li>
+
+            <li>
+                <p class="footer__contacts">
+                    Instagram: CodingMagic
+                </p>
+            </li>
+        </ul>
+
+        <div>
+            <div class="footer__form">
+                <input class="footer__email-input" type="email" placeholder="Ваша ел. адреса...">
+                <button class="footer__email-btn">Підписатись</button>
+            </div>
+            <p class="footer__note">*Підписавшись, Ви зможете ортимувати інформаццію про новинки на сайті</p>
+        </div>
+
+        <div class="footer-modal is-hidden" id="footer__modal">
+            <div class="footer-modal__backdrop"></div>
+
+            <div class="footer-modal__content">
+
+                <button class="footer-modal__close">✕</button>
+
+                <p class="footer-modal__text">
+                    Дякую за підписку!
+                </p>
+
+                <div class="modal__icons">
+                    <svg class="footer-modal__svg footer-sword" width="30" height="30">
+                        <use href="./symbols.svg#sword"></use>
+                    </svg>
+
+                    <svg class="footer-modal__svg footer-puzzle" width="30" height="30">
+                        <use href="./symbols.svg#puzzle"></use>
+                    </svg>
+
+                    <svg class="footer-modal__svg footer-tictactoe" width="30" height="30">
+                        <use href="./symbols.svg#tictactoe"></use>
+                    </svg>
+
+                    <svg class="footer-modal__svg footer-gamedev" width="30" height="30">
+                        <use href="./symbols.svg#gamedev"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
     </footer>
 </body>
 </html>

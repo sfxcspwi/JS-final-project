@@ -144,6 +144,134 @@
   transition: 0.5s;
 }
 
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-gamedev {
+  top: 67px;
+  right: 41px;
+}
+.footer-tictactoe {
+  top: 145px;
+  right: 85px;
+}
+.footer-puzzle {
+  top: 145px;
+  left: 85px;
+}
+.footer-sword {
+  top: 67px;
+  left: 41px;
+}
+.footer__contacts {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 170%;
+  letter-spacing: 0%;
+  margin: 0px;
+}
+.footer__note {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 6px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+.footer__email-input {
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.2509803922);
+  background-color: #D7D7D7;
+  color: #7E7E7E;
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  width: 204px;
+  height: 35px;
+  border: 0px;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: left;
+}
+.footer__form {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  margin-bottom: 18px;
+}
+.footer__email-btn {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #ffffff;
+  border-radius: 20px;
+  gap: 10px;
+  padding: 10px;
+  background-color: #000000;
+  border: 0px;
+}
+
+.footer-modal {
+  position: fixed;
+  inset: 0;
+  display: block;
+  z-index: 1000;
+}
+.footer-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.footer-modal__close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: none;
+  border: none;
+  font-size: 22px;
+}
+.footer-modal__text {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 110%;
+  letter-spacing: 0%;
+  text-align: center;
+  width: 392px;
+  margin: 83px 0px 42px 0px;
+}
+.footer-modal__content {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 24px;
+  width: 463px;
+  height: 245px;
+  max-width: 90%;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-modal__svg {
+  position: absolute;
+}
+
+.is-hidden {
+  display: none;
+}
+
 .guess-number__title {
   font-family: "Montserrat Alternates";
   font-weight: 400;
@@ -714,7 +842,7 @@
   margin: 18px 50px 18px 0px;
 }
 
-.container__header {
+.container__header-footer {
   max-width: 1090px;
   padding-left: 15px;
   padding-right: 15px;

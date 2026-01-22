@@ -1,3 +1,158 @@
 @import "../utils/variables";
 @import "../utils/mixins";
 
+.footer
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-gamedev
+    {
+        top: 67px;
+        right: 41px;   
+    }
+
+    &-tictactoe
+    {
+        top: 145px;
+        right: 85px;
+    }
+
+    &-puzzle
+    {
+        top: 145px;
+        left: 85px;
+    }
+
+    &-sword
+    {
+        top: 67px;
+        left: 41px;
+    }
+
+    &__contacts
+    {
+        @include text;
+        font-size: 12px;
+        line-height: 170%;
+        letter-spacing: 0%;
+        margin: 0px;
+    }
+
+    &__note
+    {
+        @include text;
+        font-size: 6px;
+        line-height: 100%;
+        letter-spacing: 0%;
+    }
+
+    &__email-input
+    {
+        box-shadow: 3px 3px 0px 0px #00000040;
+        background-color: $interactive;
+        color: $interactive-text;
+        @include text;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        width: 204px;
+        height: 35px;
+        border: 0px;
+        border-radius: 20px;
+        padding: 10px;
+        text-align: left;
+    }
+
+    &__form
+    {
+        display: flex;
+        align-items: center;
+        gap: 36px;
+        margin-bottom: 18px;
+    }
+
+    &__email-btn
+    {
+        @include text;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: $bg;
+        border-radius: 20px;
+        gap: 10px;
+        padding: 10px;
+        background-color: $color-main;
+        border: 0px;
+    }
+}
+
+
+
+.footer-modal
+{
+    position: fixed;
+    inset: 0;
+    display: block;
+    z-index: 1000;
+
+    &__backdrop
+    {
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,.6);
+    }
+
+    &__close
+    {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        background: none;
+        border: none;
+        font-size: 22px;
+    }
+
+    &__text
+    {
+        font-family: "Inter";
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 110%;
+        letter-spacing: 0%;
+        text-align: center;
+        width: 392px;
+        margin: 83px 0px 42px 0px;
+    }
+
+    &__content
+    {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);   
+        background: #fff;
+        padding: 24px;
+        width: 463px;
+        height: 245px;
+        max-width: 90%;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__svg
+    {
+        position: absolute;
+    }
+}
+
+.is-hidden
+{
+    display: none;
+}
+
+
+
