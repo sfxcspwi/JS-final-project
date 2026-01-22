@@ -31,37 +31,234 @@ let footballBall = document.querySelector(".football__ball");
 let bgstnumberInputs = document.querySelectorAll(".bgstnumber__input")
 let bgstnumberOutput = document.querySelector(".bgstnumber__result")
 let swicthMode = document.querySelector(".switch__mode")
-const imgTeam = document.querySelector(".team-mmbr__img");
-const nameTeam = document.querySelector(".team-mmbr__name");
-const infoTeam = document.querySelector(".team-mmbr__info");
-const btnsTeam = document.querySelectorAll(".team-mmbr__btn");
+let imgTeam = document.querySelector(".team-mmbr__img");
+let nameTeam = document.querySelector(".team-mmbr__name");
+let infoTeam = document.querySelector(".team-mmbr__info");
+let btnsTeam = document.querySelectorAll(".team-mmbr__btn");
+let indicators = document.querySelectorAll(".slider__indicator");
+let scientistInfo = document.querySelectorAll(".scientist__info");
+let scientistButtons = document.querySelectorAll(".scientist__btn");
+let gamesType = document.querySelectorAll(".header__submenu-link")
+let sections = document.querySelectorAll("section[data-category]");
 
-const team = 
+gamesType.forEach(link => 
+{
+    link.addEventListener("click", event => {
+
+        let category = link.dataset.type;
+
+        sections.forEach(sec => {
+            if(sec.dataset.category === category) 
+            {
+                sec.style.display = "block"; 
+            }
+            else 
+            {
+                sec.style.display = "none"; 
+            }
+        });
+    });
+})
+
+let scientists = [ 
+    { 
+        name: "Albert", 
+        surname: "Einstein", 
+        born: 1879, 
+        dead: 1955, 
+        id: 1 
+    }, 
+    { 
+        name: "Isaac", 
+        surname: "Newton", 
+        born: 1643, 
+        dead: 1727, 
+        id: 2 
+    }, 
+    { 
+        name: "Galileo", 
+        surname: "Galilei", 
+        born: 1564, 
+        dead: 1642, 
+        id: 3 
+    }, 
+    { 
+        name: "Marie", 
+        surname: "Curie", 
+        born: 1867, 
+        dead: 1934, 
+        id: 4 
+    }, 
+    { 
+        name: "Johannes", 
+        surname: "Kepler", 
+        born: 1571, 
+        dead: 1630, 
+        id: 5 
+    }, 
+    { 
+        name: "Nicolaus", 
+        surname: "Copernicus", 
+        born: 1473, 
+        dead: 1543, 
+        id: 6 
+    }, 
+    { 
+        name: "Max", 
+        surname: "Planck", 
+        born: 1858, 
+        dead: 1947, 
+        id: 7 
+    }, 
+    { 
+        name: "Katherine", 
+        surname: "Blodgett", 
+        born: 1898, 
+        dead: 1979, 
+        id: 8 
+    }, 
+    { 
+        name: "Ada", 
+        surname: "Lovelace", 
+        born: 1815, 
+        dead: 1852, 
+        id: 9 
+    }, 
+    { 
+        name: "Sarah E.", 
+        surname: "Goode", 
+        born: 1855, 
+        dead: 1905, 
+        id: 10 
+    }, 
+    { 
+        name: "Lise", 
+        surname: "Meitner", 
+        born: 1878, 
+        dead: 1968, 
+        id: 11 
+    }, 
+    { 
+        name: "Hanna", 
+        surname: "Hammarström", 
+        born: 1829, 
+        dead: 1909, 
+        id: 12 
+    } 
+];
+
+scientists.forEach((s, i) => {
+    scientistInfo[i].textContent = `${s.name} ${s.surname} (${s.born}–${s.dead})`;
+});
+
+renderScientists(scientists);
+
+scientistButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        let key = btn.dataset.info;
+        if(key && action[key]) {
+            renderScientists(action[key](scientists));
+        }
+    });
+});
+
+function renderScientists(filteredScientists) {
+    scientistInfo.forEach((s, i) => {
+        if (filteredScientists[i]) 
+        {
+            s.textContent = `${filteredScientists[i].name} ${filteredScientists[i].surname} (${filteredScientists[i].born}–${filteredScientists[i].dead})`;
+            s.classList.remove("scientist__hidden");
+        } 
+        else 
+        {
+            s.classList.add("scientist__hidden");
+        }
+    });
+}
+let action = {
+    bornInNineteenCentury: arr => arr.filter(s => s.born >= 1801 && s.born <= 1900),
+    sortByAlpha: arr => [...arr].sort((a, b) => a.surname.localeCompare(b.surname)),
+    sortLife: arr => [...arr].sort((a, b) => (b.dead - b.born) - (a.dead - a.born)),
+    surnameC: arr => arr.filter(s => s.surname.startsWith("C")),
+    removeNameA: arr => arr.filter(s => !s.name.startsWith("A")),
+    sameFirstLetter: arr => arr.filter(s => s.name[0] === s.surname[0]),
+    
+    einsteinYear: arr => { 
+        let einstein = arr.find(s => s.name === "Albert" && s.surname === "Einstein");
+        alert(`Albert Einstein народився у ${einstein.born} році`);
+        return arr;
+    },
+    
+    longestLife: arr => {
+    let latest = arr[0];
+    for (let i = 1; i < arr.length; i++) 
+    {
+        if (arr[i].born > latest.born) 
+        {
+            latest = arr[i];
+        }
+    }
+    alert(`Вчений, який народився найпізніше: ${latest.name} ${latest.surname} (${latest.born})`);
+    return arr;
+    },
+
+    minMaxLife: arr => 
+    {
+        let sorted = [...arr].sort((a, b) => (b.dead - b.born) - (a.dead - a.born));
+        let longest = sorted[0];
+        let shortest = sorted[sorted.length - 1];
+        alert(`Найдовше прожив: ${longest.name} ${longest.surname} (${longest.dead - longest.born} років)
+Найменше прожив: ${shortest.name} ${shortest.surname} (${shortest.dead - shortest.born} років)`);
+        return arr;
+    }
+};
+
+let team = 
 [
     {
         img: "/img/me.jpg",
         name: "Чугуївець Станіслав",
         info: "Team лідер"
     },
-    {
-        img: "/img/chatgpt.png",
-        name: "ChatGpt",
-        info: "Ліва рука"
-    },
+
     {
         img: "/img/lupiian.jpg",
         name: "Лупій Анастасія",
-        info: "Найкращий викладач, права рука"
-    }
+        info: "Найкращий викладач"
+    },
+    {
+        img: "/img/chatgpt.png",
+        name: "ChatGpt",
+        info: "Права рука"
+    },
+    {
+        img: "/img/spotify.png",
+        name: "Spotify",
+        info: "Музика, Ліва рука"
+    },
 ];
 
 let currentIndex = 0;
+
+updateMember();
+btnsTeam[0].style.opacity = 0;
+
+function updateIndicators() 
+{
+    indicators.forEach((indicator, index) => {
+        indicator.classList.toggle(
+            "slider__indicator--active",
+            index === currentIndex 
+        );
+    });
+}
 
 function updateMember() 
 {
     imgTeam.src = team[currentIndex].img;
     nameTeam.textContent = team[currentIndex].name;
     infoTeam.textContent = team[currentIndex].info;
+    updateIndicators();
 }
 
 btnsTeam[1].addEventListener("click", () => {
@@ -139,8 +336,8 @@ bgstnumberInputs.forEach( input =>
 });
 
 footballField.addEventListener("click", event => {
-    const fieldRect = footballField.getBoundingClientRect();
-    const ballRect = footballBall.getBoundingClientRect();  
+    let fieldRect = footballField.getBoundingClientRect();
+    let ballRect = footballBall.getBoundingClientRect();  
 
     let x = event.clientX - fieldRect.left - ballRect.width / 2;
     let y = event.clientY - fieldRect.top - ballRect.height / 2;  
@@ -238,7 +435,7 @@ rpsBtnCheck.addEventListener("click", () => {
         return;
     }
     
-    const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+    let computerChoice = choices[Math.floor(Math.random() * choices.length)];
     let winner = "";
     rpsBtnCheck.textContent = `${computerChoice}`
 
@@ -333,7 +530,7 @@ document.addEventListener("keydown", event => {
 });
 
 modalSaveBtn.addEventListener("click", event => {
-    const name = inputName.value
+    let name = inputName.value
     if(name === "") return; 
     if(name.length > 16)
     {

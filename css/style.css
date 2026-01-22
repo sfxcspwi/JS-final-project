@@ -478,6 +478,71 @@
   height: 10px;
 }
 
+.scientist__title {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin: 0px 0px 36px 0px;
+}
+.scientist__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  margin-bottom: 36px;
+}
+.scientist__list-item {
+  flex: 0 0 100px;
+  width: 100px;
+  height: 100px;
+  background-color: #D7D7D7;
+  border-radius: 20px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.scientist__info {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  font-size: 8px;
+  line-height: 170%;
+  letter-spacing: 0%;
+}
+.scientist__btn {
+  font-family: "Montserrat Alternates";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #ffffff;
+  border-radius: 20px;
+  gap: 10px;
+  padding: 10px 20px 10px 20px;
+  background-color: #000000;
+  border: 0px;
+}
+.scientist__btn-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.scientist__btn-list-item {
+  flex: 0 1 calc(50% - 20px);
+  display: flex;
+  justify-content: center;
+}
+.scientist__hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .team__title {
   font-family: "Montserrat Alternates";
   font-weight: 400;
@@ -493,12 +558,10 @@
   display: flex;
   justify-content: space-between;
 }
-
 .team-mmbr__btn {
   background-color: transparent;
   border: none;
 }
-
 .team-mmbr__img-wrapper {
   width: 150px;
   height: 150px;
@@ -506,12 +569,10 @@
   background-color: #D7D7D7;
   overflow: hidden;
 }
-
 .team-mmbr__img {
   width: 150px;
   height: 150px;
 }
-
 .team-mmbr__info {
   font-family: "Montserrat Alternates";
   font-weight: 400;
@@ -522,7 +583,6 @@
   text-align: center;
   margin: 0px 0px 24px 0px;
 }
-
 .team-mmbr__name {
   font-family: "Montserrat Alternates";
   font-weight: 400;
@@ -532,6 +592,25 @@
   letter-spacing: 0%;
   text-align: center;
   margin: 20px 0px;
+}
+
+.slider__indicator {
+  width: 18px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #D7D7D7;
+  transition: 0.3s;
+}
+.slider__indicator-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  margin: 24px auto;
+  width: 100px;
+}
+.slider__indicator--active {
+  width: 30px;
+  background-color: #797979;
 }
 
 .bgstnumber__title {

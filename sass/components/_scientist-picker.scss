@@ -1,2 +1,81 @@
 @import "../utils/variables";
 @import "../utils/mixins";
+
+.scientist
+{
+    &__title
+    {
+        @include text;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        margin: 0px 0px 36px 0px;
+    }
+
+    &__list
+    {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 48px;
+        margin-bottom: 36px;
+    }
+
+    &__list-item
+    {
+        flex: 0 0 100px;
+        width: 100px;
+        height: 100px;
+        background-color: $interactive;
+        border-radius: 20px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+
+    &__info
+    {
+        @include text;
+        text-align: center;
+        font-size: 8px;
+        line-height: 170%;
+        letter-spacing: 0%;
+
+    }
+
+    &__btn
+    {
+        @include text;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: $bg;
+        border-radius: 20px;
+        gap: 10px;
+        padding: 10px 20px 10px 20px;
+        background-color: $color-main;
+        border: 0px;
+    }
+
+    &__btn-list
+    {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    &__btn-list-item
+    {
+        flex: 0 1 calc(50% - 20px);
+        display: flex;
+        justify-content: center;
+    }
+
+    &__hidden 
+    {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+

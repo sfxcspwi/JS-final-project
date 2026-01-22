@@ -10,51 +10,79 @@
     text-align: center;
     margin: 0px 0px 36px 0px;
 }
-
-.team-mmbr__wrapper
+.team-mmbr
 {
-    display: flex;
-    justify-content: space-between;
+    &__wrapper
+    {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__btn
+    {
+        background-color: transparent;
+        border: none;
+    }
+
+    &__img-wrapper
+    {
+        width: 150px;
+        height: 150px;
+        border-radius: 20px;
+        background-color: $interactive;
+        overflow: hidden;
+
+    }
+
+    &__img
+    {
+        width: 150px;
+        height: 150px;
+    }
+
+    &__info
+    {
+        @include text;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        margin: 0px 0px 24px 0px
+    }
+
+    &__name
+    {
+        @include text;
+        font-size: 14px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        margin: 20px 0px;
+    }
 }
 
-.team-mmbr__btn
+.slider__indicator
 {
-    background-color: transparent;
-    border: none;
-}
-
-.team-mmbr__img-wrapper
-{
-    width: 150px;
-    height: 150px;
-    border-radius: 20px;
+    width: 18px;
+    height: 3px;
+    border-radius: 3px;
     background-color: $interactive;
-    overflow: hidden;
+    transition: 0.3s;
+
+    &-list
+    {
+        display: flex;
+        justify-content: space-between;
+        gap: 6px;
+        margin: 24px auto;
+        width: 100px;
+    }
+
+    &--active 
+    {
+        width: 30px;
+        background-color: #797979;
+    }
 
 }
 
-.team-mmbr__img
-{
-    width: 150px;
-    height: 150px;
-}
-
-.team-mmbr__info
-{
-    @include text;
-    font-size: 12px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    text-align: center;
-    margin: 0px 0px 24px 0px
-}
-
-.team-mmbr__name
-{
-    @include text;
-    font-size: 14px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    text-align: center;
-    margin: 20px 0px;
-}
