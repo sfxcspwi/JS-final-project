@@ -45,6 +45,107 @@ let footerInput = document.querySelector(".footer__email-input")
 let footerModal = document.querySelector(".footer-modal")
 let footerBtnClose = document.querySelector(".footer-modal__close")
 let footerBackdrop = document.querySelector(".footer-modal__backdrop")
+let dinoStartBtn = document.querySelector(".dino__btn")
+let dinoBg = document.querySelector(".dino__bg")
+let dinoCactus = document.querySelector(".dino__cactus")
+let dino = document.querySelector(".dino")
+
+let cactusX = dinoBg.offsetWidth;
+let bgX = 0;
+let speed = 5;
+let isRunning = false;
+let isJumping = false;
+let jumpHeight = 200; 
+let jumpSpeed = 5; 
+let dinoBottom = 37;
+let jumpUp = true;
+
+function moveGame() 
+{
+    if (!isRunning) return;
+
+    cactusX -= speed;
+    dinoCactus.style.transform = `translateX(${cactusX}px)`;
+
+    bgX -= speed;
+    dinoBg.style.backgroundPosition = `${bgX}px -50px`;
+
+
+    if (isJumping) 
+    {
+        if (jumpUp)
+        {
+            dinoBottom += jumpSpeed;
+            if (dinoBottom >= jumpHeight) jumpUp = false;
+        } 
+        else 
+        {
+            dinoBottom -= jumpSpeed;
+            if (dinoBottom <= 37) 
+            {
+                dinoBottom = 37;
+                isJumping = false;
+                jumpUp = true;
+            }
+        }
+
+        dino.style.bottom = dinoBottom + "px";
+    }
+
+    let dinoRect = dino.getBoundingClientRect();
+    let cactusRect = dinoCactus.getBoundingClientRect();
+
+    if 
+    (
+        dinoRect.left < cactusRect.right &&
+        dinoRect.right > cactusRect.left &&
+        dinoRect.bottom > cactusRect.top
+    ) 
+    {
+        alert("Ви програли!");
+        dinoStartBtn.textContent = "Почати";
+        isRunning = false;
+        cactusX = dinoBg.offsetWidth;
+        dinoCactus.style.transform = `translateX(${cactusX}px)`;
+        return;
+    }
+
+    if (cactusX < -50) 
+    {
+        cactusX = dinoBg.offsetWidth + Math.random() * 300;
+    }
+
+    requestAnimationFrame(moveGame);
+
+}
+
+
+dinoStartBtn.addEventListener("click", () => 
+{
+    isRunning = !isRunning;
+    if (isRunning) 
+    {
+        moveGame();
+        dinoStartBtn.textContent = "Зупинити";
+    } 
+    else 
+    {
+        dinoStartBtn.textContent = "Почати";
+    }
+});
+
+
+document.addEventListener("keydown", event => {
+    if (event.code === "Space") 
+    {
+        event.preventDefault(); 
+        if (!isJumping && isRunning) 
+        {
+            isJumping = true;
+        }
+    }
+});
+
 
 footerBtn.addEventListener("click", btn =>
 {
@@ -184,6 +285,9 @@ renderScientists(scientists);
 
 scientistButtons.forEach(btn => {
     btn.addEventListener("click", () => {
+
+        clearScientistHighlight();
+
         let key = btn.dataset.info;
         if(key && action[key]) {
             renderScientists(action[key](scientists));
@@ -204,40 +308,112 @@ function renderScientists(filteredScientists) {
         }
     });
 }
+
+function highlightScientist(index) 
+{
+    scientistInfo.forEach(element => element.classList.remove("scientist__highlight"));
+    if (scientistInfo[index]) 
+    {
+        scientistInfo[index].classList.add("scientist__highlight");
+    }
+}
+
+function clearScientistHighlight() 
+{
+    scientistInfo.forEach(element =>
+        element.classList.remove("scientist__highlight")
+    );
+}
+
 let action = {
-    bornInNineteenCentury: arr => arr.filter(s => s.born >= 1801 && s.born <= 1900),
+    bornInNineteenCentury: arr => 
+    {
+        clearScientistHighlight();
+
+        arr.forEach((s, i) => {
+            if (s.born >= 1801 && s.born <= 1900) {
+                scientistInfo[i].classList.add("scientist__highlight");
+            }
+        });
+
+        return arr; 
+    },
     sortByAlpha: arr => [...arr].sort((a, b) => a.surname.localeCompare(b.surname)),
     sortLife: arr => [...arr].sort((a, b) => (b.dead - b.born) - (a.dead - a.born)),
-    surnameC: arr => arr.filter(s => s.surname.startsWith("C")),
+    surnameC: arr => {
+    clearScientistHighlight();
+
+    arr.forEach((s, i) => {
+        if (s.surname.startsWith("C")) {
+            scientistInfo[i].classList.add("scientist__highlight");
+        }
+    });
+
+        return arr; 
+    },
+
     removeNameA: arr => arr.filter(s => !s.name.startsWith("A")),
-    sameFirstLetter: arr => arr.filter(s => s.name[0] === s.surname[0]),
-    
-    einsteinYear: arr => { 
-        let einstein = arr.find(s => s.name === "Albert" && s.surname === "Einstein");
-        alert(`Albert Einstein народився у ${einstein.born} році`);
+    sameFirstLetter: arr => {
+        clearScientistHighlight();
+
+            arr.forEach((s, i) => {
+                if (s.name[0] === s.surname[0]) {
+                    scientistInfo[i].classList.add("scientist__highlight");
+                }
+            });
+
         return arr;
     },
     
+    einsteinYear: arr => { 
+        let einstein = arr.find(s => s.name === "Albert" && s.surname === "Einstein"); 
+        alert(`Albert Einstein народився у ${einstein.born} році`); 
+        return arr; 
+    },
+    
     longestLife: arr => {
-    let latest = arr[0];
-    for (let i = 1; i < arr.length; i++) 
-    {
-        if (arr[i].born > latest.born) 
+    let latestIndex = 0;
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i].born > arr[latestIndex].born) 
         {
-            latest = arr[i];
+            latestIndex = i;
         }
     }
-    alert(`Вчений, який народився найпізніше: ${latest.name} ${latest.surname} (${latest.born})`);
+
+    highlightScientist(latestIndex);
     return arr;
     },
 
     minMaxLife: arr => 
     {
-        let sorted = [...arr].sort((a, b) => (b.dead - b.born) - (a.dead - a.born));
-        let longest = sorted[0];
-        let shortest = sorted[sorted.length - 1];
-        alert(`Найдовше прожив: ${longest.name} ${longest.surname} (${longest.dead - longest.born} років)
-Найменше прожив: ${shortest.name} ${shortest.surname} (${shortest.dead - shortest.born} років)`);
+        let longestIndex = 0;
+        let shortestIndex = 0;
+
+        for (let i = 1; i < arr.length; i++) 
+            {
+            if (
+                arr[i].dead - arr[i].born >
+                arr[longestIndex].dead - arr[longestIndex].born
+            ) {
+                longestIndex = i;
+            }
+
+            if (
+                arr[i].dead - arr[i].born <
+                arr[shortestIndex].dead - arr[shortestIndex].born
+            ) {
+                shortestIndex = i;
+            }
+        }
+
+        scientistInfo.forEach(el =>
+            el.classList.remove("scientist__highlight")
+        );
+
+        scientistInfo[longestIndex].classList.add("scientist__highlight");
+        scientistInfo[shortestIndex].classList.add("scientist__highlight");
+
         return arr;
     }
 };
