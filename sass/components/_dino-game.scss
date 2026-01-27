@@ -18,6 +18,17 @@
         overflow: hidden;
     }
 
+    &__result
+    {
+        height: 10px;
+        margin: 0px 0px 18px 0px;
+        @include text; 
+        font-size: 12px;
+        line-height: 170%;
+        letter-spacing: 0%;
+    
+    }
+
     &__bg
     {
         background-image: url(/img/dino__bg.jpg);

@@ -49,7 +49,9 @@ let dinoStartBtn = document.querySelector(".dino__btn")
 let dinoBg = document.querySelector(".dino__bg")
 let dinoCactus = document.querySelector(".dino__cactus")
 let dino = document.querySelector(".dino")
+let dinoResult = document.querySelector(".dino__result")
 
+let result = 0;
 let cactusX = dinoBg.offsetWidth;
 let bgX = 0;
 let speed = 5;
@@ -59,6 +61,8 @@ let jumpHeight = 200;
 let jumpSpeed = 5; 
 let dinoBottom = 37;
 let jumpUp = true;
+
+
 
 function moveGame() 
 {
@@ -102,7 +106,7 @@ function moveGame()
         dinoRect.bottom > cactusRect.top
     ) 
     {
-        alert("Ви програли!");
+        alert(`Ви програли! Ваш рахунок: ${result}`);
         dinoStartBtn.textContent = "Почати";
         isRunning = false;
         cactusX = dinoBg.offsetWidth;
@@ -113,9 +117,11 @@ function moveGame()
     if (cactusX < -50) 
     {
         cactusX = dinoBg.offsetWidth + Math.random() * 300;
+        result += 100;
+        dinoResult.textContent = `${result}`
     }
 
-    requestAnimationFrame(moveGame);
+    requestAnimationFrame(moveGame); // P.S я піддивився цю команду, но я зрузумів що вона робить, при кожному оновлені кадра на сторінці виконується функція вище
 
 }
 
@@ -126,6 +132,7 @@ dinoStartBtn.addEventListener("click", () =>
     if (isRunning) 
     {
         moveGame();
+        result = 0;
         dinoStartBtn.textContent = "Зупинити";
     } 
     else 
