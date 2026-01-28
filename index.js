@@ -36,8 +36,8 @@ let nameTeam = document.querySelector(".team-mmbr__name");
 let infoTeam = document.querySelector(".team-mmbr__info");
 let btnsTeam = document.querySelectorAll(".team-mmbr__btn");
 let indicators = document.querySelectorAll(".slider__indicator");
-let scientistInfo = document.querySelectorAll(".scientist__info");
-let scientistButtons = document.querySelectorAll(".scientist__btn");
+let scientistInfo = document.querySelectorAll(".sci__info");
+let scientistButtons = document.querySelectorAll(".sci__btn");
 let gamesType = document.querySelectorAll(".header__submenu-link")
 let sections = document.querySelectorAll("section[data-category]");
 let footerBtn = document.querySelector(".footer__email-btn")
@@ -307,28 +307,28 @@ function renderScientists(filteredScientists) {
         if (filteredScientists[i]) 
         {
             s.textContent = `${filteredScientists[i].name} ${filteredScientists[i].surname} (${filteredScientists[i].born}–${filteredScientists[i].dead})`;
-            s.classList.remove("scientist__hidden");
+            s.classList.remove("sci__hidden");
         } 
         else 
         {
-            s.classList.add("scientist__hidden");
+            s.classList.add("sci__hidden");
         }
     });
 }
 
 function highlightScientist(index) 
 {
-    scientistInfo.forEach(element => element.classList.remove("scientist__highlight"));
+    scientistInfo.forEach(element => element.classList.remove("sci__highlight"));
     if (scientistInfo[index]) 
     {
-        scientistInfo[index].classList.add("scientist__highlight");
+        scientistInfo[index].classList.add("sci__highlight");
     }
 }
 
 function clearScientistHighlight() 
 {
     scientistInfo.forEach(element =>
-        element.classList.remove("scientist__highlight")
+        element.classList.remove("sci__highlight")
     );
 }
 
@@ -339,7 +339,7 @@ let action = {
 
         arr.forEach((s, i) => {
             if (s.born >= 1801 && s.born <= 1900) {
-                scientistInfo[i].classList.add("scientist__highlight");
+                scientistInfo[i].classList.add("sci__highlight");
             }
         });
 
@@ -352,7 +352,7 @@ let action = {
 
     arr.forEach((s, i) => {
         if (s.surname.startsWith("C")) {
-            scientistInfo[i].classList.add("scientist__highlight");
+            scientistInfo[i].classList.add("sci__highlight");
         }
     });
 
@@ -365,7 +365,7 @@ let action = {
 
             arr.forEach((s, i) => {
                 if (s.name[0] === s.surname[0]) {
-                    scientistInfo[i].classList.add("scientist__highlight");
+                    scientistInfo[i].classList.add("sci__highlight");
                 }
             });
 
@@ -415,11 +415,11 @@ let action = {
         }
 
         scientistInfo.forEach(el =>
-            el.classList.remove("scientist__highlight")
+            el.classList.remove("sci__highlight")
         );
 
-        scientistInfo[longestIndex].classList.add("scientist__highlight");
-        scientistInfo[shortestIndex].classList.add("scientist__highlight");
+        scientistInfo[longestIndex].classList.add("sci__highlight");
+        scientistInfo[shortestIndex].classList.add("sci__highlight");
 
         return arr;
     }
